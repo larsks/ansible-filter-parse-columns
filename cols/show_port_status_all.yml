@@ -1,0 +1,28 @@
+---
+start_block: "^---"
+end_block: "^$"
+columns:
+  interface:
+    start: 0
+    end: 6
+  media_type:
+    start: 11
+    end: 22
+  stp_mode:
+    start: 24
+    end: 30
+  phys_mode:
+    start: 32
+    end: 42
+  phys_status:
+    start: 44
+    end: 54
+  link_status:
+    start: 56
+    end: 64
+  loop_status:
+    start: 68
+    end: 74
+  flow_control:
+    start: 75
+    end: 87

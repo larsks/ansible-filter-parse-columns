@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: show port status all
+      set_fact:
+        show_port_status_all: "{{ lookup('file', 'show_port_status_all.txt')|parse_columns('cols/show_port_status_all.yml') }}"
+
+    - name: check show port status all results
+      assert:
+        that:
+          - show_port_status_all.1.interface == '0/2'
+          - show_port_status_all.1.media_type == '1000TX'
+          - show_port_status_all.1.stp_mode == 'FWD'
+          - show_port_status_all.1.phys_mode == 'Auto'
+          - show_port_status_all.1.phys_status == '1000 Full'
+          - show_port_status_all.1.link_status == 'Up'
+          - show_port_status_all.1.loop_status == ''
+          - show_port_status_all.1.loop_status == ''
+          - show_port_status_all.1.flow_control == 'On'

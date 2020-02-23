@@ -1,0 +1,38 @@
+
+(office-sw-0) >enable
+
+(office-sw-0) #show port all
+
+                  Admin     Physical   Physical  Link    Link    LACP   Flow
+ Intf      Type   Mode      Mode       Status    Status  Trap    Mode   Mode
+--------- ------ --------- ---------- ---------- ------ ------- ------ -------
+0/1              Disable   Auto                  Down   Enable  Enable Disable
+0/2              Enable    Auto       1000 Full  Up     Enable  Enable Disable
+0/3              Enable    Auto                  Down   Enable  Enable Disable
+0/4              Enable    Auto                  Down   Enable  Enable Disable
+0/5              Enable    Auto       100 Full   Up     Enable  Enable Disable
+0/6              Enable    Auto       100 Full   Up     Enable  Enable Disable
+0/7              Enable    Auto       1000 Full  Up     Enable  Enable Disable
+0/8              Enable    Auto       1000 Full  Up     Enable  Enable Disable
+0/9              Enable    Auto                  Down   Enable  Enable Disable
+0/10             Enable    Auto       1000 Full  Up     Enable  Enable Disable
+0/11             Enable    Auto       1000 Full  Up     Enable  Enable Disable
+0/12             Enable    Auto       1000 Full  Up     Enable  Enable Disable
+lag 1            Enable                          Down   Disable N/A    Disable
+lag 2            Enable                          Down   Disable N/A    Disable
+lag 3            Enable                          Down   Disable N/A    Disable
+lag 4            Enable                          Down   Disable N/A    Disable
+lag 5            Enable                          Down   Disable N/A    Disable
+lag 6            Enable                          Down   Disable N/A    Disable
+lag 7            Enable                          Down   Disable N/A    Disable
+lag 8            Enable                          Down   Disable N/A    Disable
+lag 9            Enable                          Down   Disable N/A    Disable
+lag 10           Enable                          Down   Disable N/A    Disable
+lag 11           Enable                          Down   Disable N/A    Disable
+lag 12           Enable                          Down   Disable N/A    Disable
+vlan 1           Enable                          Up     Enable  N/A    Disable
+vlan 100         Enable                          Up     Enable  N/A    Disable
+vlan 101         Enable                          Up     Enable  N/A    Disable
+vlan 102         Enable                          Up     Enable  N/A    Disable
+
+(office-sw-0) #

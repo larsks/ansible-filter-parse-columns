@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: show port all
+      set_fact:
+        show_port_all: "{{ lookup('file', 'show_port_all.txt')|parse_columns('cols/show_port_all.yml') }}"
+
+    - name: check show port all results
+      assert:
+        that:
+          - show_port_all.1.interface == '0/2'
+          - show_port_all.1.admin_mode == 'Enable'
+          - show_port_all.1.phys_mode == 'Auto'
+          - show_port_all.1.phys_status == '1000 Full'
+          - show_port_all.1.link_status == 'Up'
+          - show_port_all.1.link_trap == 'Enable'
+          - show_port_all.1.lacp_mode == 'Enable'
+          - show_port_all.1.flow_mode == 'Disable'

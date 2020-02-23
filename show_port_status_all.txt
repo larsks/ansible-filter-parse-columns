@@ -1,0 +1,38 @@
+
+(office-sw-0) >enable
+
+(office-sw-0) #show port status all
+
+            Media        STP     Physical    Physical     Link      Loop   Partner Flow
+ Intf       Type         Mode      Mode       Status     Status    Status     Control
+------     -----------  ------  ----------  ----------  --------  -------- ------------
+0/1                     DIS     Auto                    Down               Off
+0/2        1000TX       FWD     Auto        1000 Full   Up                 On
+0/3                     DIS     Auto                    Down               Off
+0/4                     DIS     Auto                    Down               Off
+0/5        100TX        FWD     Auto        100T Full   Up                 Off
+0/6        100TX        FWD     Auto        100T Full   Up                 Off
+0/7        1000TX       FWD     Auto        1000 Full   Up                 On
+0/8        1000TX       FWD     Auto        1000 Full   Up                 Off
+0/9                     DIS     Auto                    Down               Off
+0/10       1000TX       FWD     Auto        1000 Full   Up                 On
+0/11       1000TX       FWD     Auto        1000 Full   Up                 On
+0/12       1000TX       FWD     Auto        1000 Full   Up                 On
+lag 1                   DIS                             Down               Off
+lag 2                   DIS                             Down               Off
+lag 3                   DIS                             Down               Off
+lag 4                   DIS                             Down               Off
+lag 5                   DIS                             Down               Off
+lag 6                   DIS                             Down               Off
+lag 7                   DIS                             Down               Off
+lag 8                   DIS                             Down               Off
+lag 9                   DIS                             Down               Off
+lag 10                  DIS                             Down               Off
+lag 11                  DIS                             Down               Off
+lag 12                  DIS                             Down               Off
+vlan 1                  -                               Up                 Off
+vlan 100                -                               Up                 Off
+vlan 101                -                               Up                 Off
+vlan 102                -                               Up                 Off
+
+(office-sw-0) #

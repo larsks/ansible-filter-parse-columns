@@ -1,0 +1,39 @@
+---
+start_block: "^---"
+end_block: "^$"
+columns:
+  interface:
+    start: 0
+    end: 8
+    check: "(\\d+/\\d+|lag \\d+|vlan \\d+)"
+  type:
+    start: 10
+    end: 15
+  admin_mode:
+    start: 17
+    end: 24
+    check: "(Enable|Disable)"
+  phys_mode:
+    start: 27
+    end: 36
+    check: "^(Auto|)$"
+  phys_status:
+    start: 38
+    end: 47
+    check: "^((100|1000) (Full|Half)|)$"
+  link_status:
+    start: 49
+    end: 54
+    check: "(Up|Down)"
+  link_trap:
+    start: 56
+    end: 63
+    check: "(Enable|Disable)"
+  lacp_mode:
+    start: 64
+    end: 70
+    check: "(Enable|Disable|N/A)"
+  flow_mode:
+    start: 71
+    end: 78
+    check: "(Enable|Disable)"

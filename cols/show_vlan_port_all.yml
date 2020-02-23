@@ -1,0 +1,199 @@
+---
+start_block: "^---"
+end_block: "^$"
+columns:
+  interface:
+    start: 0
+    end: 9
+  pvid_configured:
+    start: 10
+    end: 20
+  pvid_current:
+    start: 21
+    end: 29
+  accept_frame_types:
+    start: 30
+    end: 41
+  ingress_configured:
+    start: 42
+    end: 52
+  ingress_current:
+    start: 53
+    end: 62
+  gvrp:
+    start: 63
+    end: 70
+  priority:
+    start: 71
+    end: 7 10
+    end: 20
+  pvid_current:
+    start: 21
+    end: 29
+  accept_frame_types:
+    start: 30
+    end: 41
+  ingress_configured:
+    start: 42
+    end: 52
+  ingress_current:
+    start: 53
+    end: 62
+  gvrp:
+    start: 63
+    end: 70
+  priority:
+    start: 71
+    end: 7 10
+    end: 20
+  pvid_current:
+    start: 21
+    end: 29
+  accept_frame_types:
+    start: 30
+    end: 41
+  ingress_configured:
+    start: 42
+    end: 52
+  ingress_current:
+    start: 53
+    end: 62
+  gvrp:
+    start: 63
+    end: 70
+  priority:
+    start: 71
+    end: 7 10
+    end: 20
+  pvid_current:
+    start: 21
+    end: 29
+  accept_frame_types:
+    start: 30
+    end: 41
+  ingress_configured:
+    start: 42
+    end: 52
+  ingress_current:
+    start: 53
+    end: 62
+  gvrp:
+    start: 63
+    end: 70
+  priority:
+    start: 71
+    end: 7 10
+    end: 20
+  pvid_current:
+    start: 21
+    end: 29
+  accept_frame_types:
+    start: 30
+    end: 41
+  ingress_configured:
+    start: 42
+    end: 52
+  ingress_current:
+    start: 53
+    end: 62
+  gvrp:
+    start: 63
+    end: 70
+  priority:
+    start: 71
+    end: 7 10
+    end: 20
+  pvid_current:
+    start: 21
+    end: 29
+  accept_frame_types:
+    start: 30
+    end: 41
+  ingress_configured:
+    start: 42
+    end: 52
+  ingress_current:
+    start: 53
+    end: 62
+  gvrp:
+    start: 63
+    end: 70
+  priority:
+    start: 71
+    end: 7 10
+    end: 20
+  pvid_current:
+    start: 21
+    end: 29
+  accept_frame_types:
+    start: 30
+    end: 41
+  ingress_configured:
+    start: 42
+    end: 52
+  ingress_current:
+    start: 53
+    end: 62
+  gvrp:
+    start: 63
+    end: 70
+  priority:
+    start: 71
+    end: 7 10
+    end: 20
+  pvid_current:
+    start: 21
+    end: 29
+  accept_frame_types:
+    start: 30
+    end: 41
+  ingress_configured:
+    start: 42
+    end: 52
+  ingress_current:
+    start: 53
+    end: 62
+  gvrp:
+    start: 63
+    end: 70
+  priority:
+    start: 71
+    end: 7 10
+    end: 20
+  pvid_current:
+    start: 21
+    end: 29
+  accept_frame_types:
+    start: 30
+    end: 41
+  ingress_configured:
+    start: 42
+    end: 52
+  ingress_current:
+    start: 53
+    end: 62
+  gvrp:
+    start: 63
+    end: 70
+  priority:
+    start: 71
+    end: 7 10
+    end: 20
+  pvid_current:
+    start: 21
+    end: 29
+  accept_frame_types:
+    start: 30
+    end: 41
+  ingress_configured:
+    start: 42
+    end: 52
+  ingress_current:
+    start: 53
+    end: 62
+  gvrp:
+    start: 63
+    end: 70
+  priority:
+    start: 71
+    end: 79
