@@ -1,8 +1,10 @@
 ---
 - hosts: localhost
   gather_facts: false
+  vars:
+    parsers: "{{ query('fileglob', 'cols/*.yml', allow_unsafe=True) }}"
   tasks:
     - include_tasks: test_parser.yml
-      loop: "{{ query('fileglob', 'cols/*.yml', allow_unsafe=True) }}"
+      loop: "{{ parsers|makelist }}"
       loop_control:
         loop_var: column_defs
