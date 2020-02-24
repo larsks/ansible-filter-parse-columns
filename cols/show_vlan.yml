@@ -1,6 +1,6 @@
 ---
-start_block: "^---"
-end_block: "^$"
+start_table: "^---"
+end_table: "^$"
 columns:
   - name: vlan_id
     start: 0

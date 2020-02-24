@@ -10,28 +10,39 @@ def filter_parse_columns(val, column_def_file):
     with open(column_def_file, 'r') as fd:
         column_def = yaml.safe_load(fd)
 
-    match_start = (
+    match_start_block = (
         re.compile(column_def['start_block']) if 'start_block' in column_def
         else None
     )
 
-    match_end = (
-        re.compile(column_def['end_block']) if 'end_block' in column_def
+    match_start_table = (
+        re.compile(column_def['start_table']) if 'start_table' in column_def
         else None
     )
 
-    started = match_start is None
+    match_end_table = (
+        re.compile(column_def['end_table']) if 'end_table' in column_def
+        else None
+    )
+
+    in_block = match_start_block is None
+    in_table = match_start_table is None
     lines = val.splitlines()
     rows = []
     template = Template()
 
     for line in lines:
-        if not started:
-            if match_start and match_start.match(line):
-                started = True
+        if not in_block:
+            if match_start_block and match_start_block.match(line):
+                in_block = True
             continue
 
-        if match_end and match_end.match(line):
+        if not in_table:
+            if match_start_table and match_start_table.match(line):
+                in_table = True
+            continue
+
+        if match_end_table and match_end_table.match(line):
             break
 
         row = {}
