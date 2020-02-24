@@ -1,6 +1,10 @@
 import re
 import yaml
 
+from ansible.module_utils.network.common.utils import Template
+
+DEFAULT_TEMPLATE = '{{ value.strip() }}'
+
 
 def filter_parse_columns(val, column_def_file):
     with open(column_def_file, 'r') as fd:
@@ -19,6 +23,7 @@ def filter_parse_columns(val, column_def_file):
     started = match_start is None
     lines = val.splitlines()
     rows = []
+    template = Template()
 
     for line in lines:
         if not started:
@@ -30,17 +35,25 @@ def filter_parse_columns(val, column_def_file):
             break
 
         row = {}
-        for col, coldef in column_def['columns'].items():
-            val = line[coldef['start']:coldef['end']]
+        for coldef in column_def['columns']:
+            if 'start' in coldef and 'end' in coldef:
+                val1 = line[coldef['start']:coldef['end']]
+            else:
+                val1 = None
 
-            if not coldef.get('no_strip', False):
-                val = val.strip()
+            val2 = template(coldef.get('value', DEFAULT_TEMPLATE),
+                            {'value': val1, 'obj': row})
+            # template() returns None if the result of template
+            # expansion is empty, which will break the subsequent
+            # re.match.
+            if val2 is None:
+                val2 = ''
 
             if 'check' in coldef:
-                if not re.match(coldef['check'], val):
-                    raise ValueError(val)
+                if not re.match(coldef['check'], val2):
+                    raise ValueError(val2)
 
-            row[col] = val
+            row[coldef['name']] = val2
         rows.append(row)
 
     return rows
