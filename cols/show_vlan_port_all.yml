@@ -2,198 +2,215 @@
 start_block: "^---"
 end_block: "^$"
 columns:
-  interface:
+  - name: interface
     start: 0
     end: 9
-  pvid_configured:
+  - name: pvid_configured
     start: 10
     end: 20
-  pvid_current:
+  - name: pvid_current
     start: 21
     end: 29
-  accept_frame_types:
+  - name: accept_frame_types
     start: 30
     end: 41
-  ingress_configured:
+  - name: ingress_configured
     start: 42
     end: 52
-  ingress_current:
+  - name: ingress_current
     start: 53
     end: 62
-  gvrp:
+  - name: gvrp
     start: 63
     end: 70
-  priority:
+  - name: priority
     start: 71
     end: 7 10
     end: 20
-  pvid_current:
+  - name: pvid_current
     start: 21
     end: 29
-  accept_frame_types:
+  - name: accept_frame_types
     start: 30
     end: 41
-  ingress_configured:
+  - name: ingress_configured
     start: 42
     end: 52
-  ingress_current:
+  - name: ingress_current
     start: 53
     end: 62
-  gvrp:
+  - name: gvrp
     start: 63
     end: 70
-  priority:
+  - name: priority
     start: 71
     end: 7 10
     end: 20
-  pvid_current:
+  - name: pvid_current
     start: 21
     end: 29
-  accept_frame_types:
+  - name: accept_frame_types
     start: 30
     end: 41
-  ingress_configured:
+  - name: ingress_configured
     start: 42
     end: 52
-  ingress_current:
+  - name: ingress_current
     start: 53
     end: 62
-  gvrp:
+  - name: gvrp
     start: 63
     end: 70
-  priority:
+  - name: priority
     start: 71
     end: 7 10
     end: 20
-  pvid_current:
+  - name: pvid_current
     start: 21
     end: 29
-  accept_frame_types:
+  - name: accept_frame_types
     start: 30
     end: 41
-  ingress_configured:
+  - name: ingress_configured
     start: 42
     end: 52
-  ingress_current:
+  - name: ingress_current
     start: 53
     end: 62
-  gvrp:
+  - name: gvrp
     start: 63
     end: 70
-  priority:
+  - name: priority
     start: 71
     end: 7 10
     end: 20
-  pvid_current:
+  - name: pvid_current
     start: 21
     end: 29
-  accept_frame_types:
+  - name: accept_frame_types
     start: 30
     end: 41
-  ingress_configured:
+  - name: ingress_configured
     start: 42
     end: 52
-  ingress_current:
+  - name: ingress_current
     start: 53
     end: 62
-  gvrp:
+  - name: gvrp
     start: 63
     end: 70
-  priority:
+  - name: priority
     start: 71
     end: 7 10
     end: 20
-  pvid_current:
+  - name: pvid_current
     start: 21
     end: 29
-  accept_frame_types:
+  - name: accept_frame_types
     start: 30
     end: 41
-  ingress_configured:
+  - name: ingress_configured
     start: 42
     end: 52
-  ingress_current:
+  - name: ingress_current
     start: 53
     end: 62
-  gvrp:
+  - name: gvrp
     start: 63
     end: 70
-  priority:
+  - name: priority
     start: 71
     end: 7 10
     end: 20
-  pvid_current:
+  - name: pvid_current
     start: 21
     end: 29
-  accept_frame_types:
+  - name: accept_frame_types
     start: 30
     end: 41
-  ingress_configured:
+  - name: ingress_configured
     start: 42
     end: 52
-  ingress_current:
+  - name: ingress_current
     start: 53
     end: 62
-  gvrp:
+  - name: gvrp
     start: 63
     end: 70
-  priority:
+  - name: priority
     start: 71
     end: 7 10
     end: 20
-  pvid_current:
+  - name: pvid_current
     start: 21
     end: 29
-  accept_frame_types:
+  - name: accept_frame_types
     start: 30
     end: 41
-  ingress_configured:
+  - name: ingress_configured
     start: 42
     end: 52
-  ingress_current:
+  - name: ingress_current
     start: 53
     end: 62
-  gvrp:
+  - name: gvrp
     start: 63
     end: 70
-  priority:
+  - name: priority
     start: 71
     end: 7 10
     end: 20
-  pvid_current:
+  - name: pvid_current
     start: 21
     end: 29
-  accept_frame_types:
+  - name: accept_frame_types
     start: 30
     end: 41
-  ingress_configured:
+  - name: ingress_configured
     start: 42
     end: 52
-  ingress_current:
+  - name: ingress_current
     start: 53
     end: 62
-  gvrp:
+  - name: gvrp
     start: 63
     end: 70
-  priority:
+  - name: priority
     start: 71
     end: 7 10
     end: 20
-  pvid_current:
+  - name: pvid_current
     start: 21
     end: 29
-  accept_frame_types:
+  - name: accept_frame_types
     start: 30
     end: 41
-  ingress_configured:
+  - name: ingress_configured
     start: 42
     end: 52
-  ingress_current:
+  - name: ingress_current
     start: 53
     end: 62
-  gvrp:
+  - name: gvrp
     start: 63
     end: 70
-  priority:
+  - name: priority
     start: 71
     end: 79
+test:
+  given: |2
+              Port       Port                 Ingress    Ingress
+              VLAN ID    VLAN ID  Acceptable  Filtering  Filtering         Default
+    Interface Configured Current  Frame Types Configured Current    GVRP   Priority
+    --------- ---------- -------- ----------- ---------- --------- ------- --------
+    0/1       100        100      Admit All   Enable     Enable    Disable     0
+    0/2       100        100      Admit All   Enable     Enable    Disable     0
+  expect:
+    - items.0.interface == '0/1'
+    - items.0.pvid_configured == 100
+    - items.0.pvid_current == 100
+    - items.0.accept_frame_types == 'Admit All'
+    - items.0.ingress_configured == 'Enable'
+    - items.0.ingress_current == 'Enable'
+    - items.0.gvrp == 'Disable'
+    - items.0.priority == 0

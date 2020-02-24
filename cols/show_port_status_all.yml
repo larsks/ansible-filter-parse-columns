@@ -2,27 +2,44 @@
 start_block: "^---"
 end_block: "^$"
 columns:
-  interface:
+  - name: interface
     start: 0
     end: 6
-  media_type:
+  - name: media_type
     start: 11
     end: 22
-  stp_mode:
+  - name: stp_mode
     start: 24
     end: 30
-  phys_mode:
+  - name: phys_mode
     start: 32
     end: 42
-  phys_status:
+  - name: phys_status
     start: 44
     end: 54
-  link_status:
+  - name: link_status
     start: 56
     end: 64
-  loop_status:
+  - name: loop_status
     start: 68
     end: 74
-  flow_control:
+  - name: flow_control
     start: 75
     end: 87
+test:
+  given: |2
+                Media        STP     Physical    Physical     Link      Loop   Partner Flow
+     Intf       Type         Mode      Mode       Status     Status    Status     Control
+    ------     -----------  ------  ----------  ----------  --------  -------- ------------
+    0/1                     DIS     Auto                    Down               Off
+    0/2        1000TX       FWD     Auto        1000 Full   Up                 On
+  expect:
+    - items.1.interface == '0/2'
+    - items.1.media_type == '1000TX'
+    - items.1.stp_mode == 'FWD'
+    - items.1.phys_mode == 'Auto'
+    - items.1.phys_status == '1000 Full'
+    - items.1.link_status == 'Up'
+    - items.1.loop_status == ''
+    - items.1.loop_status == ''
+    - items.1.flow_control == 'On'

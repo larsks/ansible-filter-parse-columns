@@ -1,0 +1,28 @@
+---
+start_block: "^---"
+end_block: "^$"
+columns:
+  - name: vlan_id
+    start: 0
+    end: 7
+  - name: vlan_name
+    start: 8
+    end: 40
+  - name: vlan_type
+    start: 41
+    end: 60
+test:
+  given: |
+    Maximum VLAN Entries........................... 1024
+    VLAN Entries Currently in Use.................. 4
+
+    VLAN ID VLAN Name                        VLAN Type
+    ------- -------------------------------- -------------------
+    1       default                           Default
+    100     house                             Static
+    101     kube                              Static
+    102     office                            Static
+  expect:
+    - items.0.vlan_id == 1
+    - items.0.vlan_name == 'default'
+    - items.0.vlan_type == 'Default'

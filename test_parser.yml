@@ -1,0 +1,18 @@
+---
+- name: read column definitions
+  set_fact:
+    columns: "{{ query('file', column_defs, allow_unsafe=true)|first|from_yaml }}"
+
+- debug:
+    msg: "{{ columns }}"
+
+- name: parse example output
+  set_fact:
+    items: "{{ columns.test.given|parse_columns(column_defs) }}"
+
+- debug:
+    msg: "{{ columns.test.expect }}"
+
+- name: run tests
+  assert:
+    that: "{{ columns.test.expect }}"

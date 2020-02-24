@@ -2,38 +2,56 @@
 start_block: "^---"
 end_block: "^$"
 columns:
-  interface:
+  - name: interface
     start: 0
     end: 8
     check: "(\\d+/\\d+|lag \\d+|vlan \\d+)"
-  type:
+  - name: type
     start: 10
     end: 15
-  admin_mode:
+  - name: admin_mode
     start: 17
     end: 24
     check: "(Enable|Disable)"
-  phys_mode:
+  - name: phys_mode
     start: 27
     end: 36
     check: "^(Auto|)$"
-  phys_status:
+  - name: phys_status
     start: 38
     end: 47
     check: "^((100|1000) (Full|Half)|)$"
-  link_status:
+  - name: link_status
     start: 49
     end: 54
     check: "(Up|Down)"
-  link_trap:
+  - name: link_trap
     start: 56
     end: 63
     check: "(Enable|Disable)"
-  lacp_mode:
+  - name: lacp_mode
     start: 64
     end: 70
     check: "(Enable|Disable|N/A)"
-  flow_mode:
+  - name: flow_mode
     start: 71
     end: 78
     check: "(Enable|Disable)"
+test:
+  given: |2
+                      Admin     Physical   Physical  Link    Link    LACP   Flow
+     Intf      Type   Mode      Mode       Status    Status  Trap    Mode   Mode
+    --------- ------ --------- ---------- ---------- ------ ------- ------ -------
+    0/1              Enable    Auto       1000 Full  Up     Enable  Enable Disable
+    0/2              Enable    Auto                  Down   Enable  Enable Disable
+    0/3              Enable    Auto       100 Full   Up     Enable  Enable Disable
+
+  expect:
+    - items.0.interface == '0/1'
+    - items.0.admin_mode == 'Enable'
+    - items.0.phys_mode == 'Auto'
+    - items.0.phys_status == '1000 Full'
+    - items.0.link_status == 'Up'
+    - items.0.link_trap == 'Enable'
+    - items.0.lacp_mode == 'Enable'
+    - items.0.flow_mode == 'Disable'
