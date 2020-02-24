@@ -5,13 +5,19 @@
 
 - debug:
     msg: "{{ columns }}"
+  when: verbose_tests|default(false)|bool
 
 - name: parse example output
   set_fact:
     items: "{{ columns.test.given|parse_columns(column_defs) }}"
 
 - debug:
+    msg: "{{ items }}"
+  when: verbose_tests|default(false)|bool
+
+- debug:
     msg: "{{ columns.test.expect }}"
+  when: verbose_tests|default(false)|bool
 
 - name: run tests
   assert:
